@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS-DOS Assembly Language Cheat Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>MS-DOS Assembly Language Cheat Sheet</h1>
+
+        <h2>Interrupts</h2>
+        <p>Interrupts are software-generated events that can be triggered by both hardware and software. In MS-DOS
+            Assembly Language, interrupts are commonly used for interacting with the operating system and hardware
+            components.</p>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Int 21h</td>
+                <td>DOS Function Calls - Allows access to various DOS functions such as file operations, memory
+                    allocation, and program termination.</td>
+                <td> <code>INT 21h</code></td>
+            </tr>
+            <tr>
+                <td>Int 10h</td>
+                <td>Video Services - Provides functions for controlling video display, including setting cursor
+                    position, changing screen colors, and displaying characters.</td>
+                <td> <code>INT 10h</code></td>
+            </tr>
+            <tr>
+                <td>Int 16h</td>
+                <td>Keyboard Services - Enables interaction with the keyboard, allowing the program to read keypresses
+                    and control keyboard LEDs.</td>
+                <td> <code>INT 16h</code></td>
+            </tr>
+        </table>
+
+        <h2>Data Movement</h2>
+        <p>Data movement instructions are used to transfer data between memory locations and registers.</p>
+        <table>
+            <tr>
+                <th>Instruction</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>MOV</td>
+                <td>Move Data - Copies data from one location to another.</td>
+                <td> <code>MOV AX, BX</code></td>
+            </tr>
+            <tr>
+                <td>LEA</td>
+                <td>Load Effective Address - Loads the offset address of the source operand into the destination
+                    operand.</td>
+                <td> <code>LEA SI, array</code></td>
+            </tr>
+        </table>
+
+        <h2>Arithmetic and Logic</h2>
+        <p>Arithmetic and logic instructions perform mathematical and logical operations on data.</p>
+        <table>
+            <tr>
+                <th>Instruction</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>ADD, SUB, INC, DEC</td>
+                <td>Addition, Subtraction, Increment, Decrement - Perform arithmetic operations on operands.</td>
+                <td> <code>ADD AX, BX</code></td>
+            </tr>
+            <tr>
+                <td>MUL, DIV</td>
+                <td>Multiplication, Division - Perform multiplication and division operations.</td>
+                <td> <code>MUL CX</code></td>
+            </tr>
+            <tr>
+                <td>AND, OR, XOR, NOT</td>
+                <td>Bitwise Operations - Perform logical operations on operands.</td>
+                <td> <code>AND AX, 0xFF</code></td>
+            </tr>
+        </table>
+
+        <h2>Control Flow</h2>
+        <p>Control flow instructions alter the sequence of program execution based on conditions or direct program flow
+            to specific locations.</p>
+        <table>
+            <tr>
+                <th>Instruction</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>JMP</td>
+                <td>Unconditional Jump - Transfers control to a specified address unconditionally.</td>
+                <td> <code>JMP label</code></td>
+            </tr>
+            <tr>
+                <td>JZ, JNZ, JC, JNC</td>
+                <td>Conditional Jumps based on Flags - Perform conditional jumps based on the state of processor flags.
+                </td>
+                <td> <code>JZ label</code></td>
+            </tr>
+            <tr>
+                <td>JS, JNS</td>
+                <td>Conditional Jumps based on Sign Flag - Jumps based on the state of the sign flag.</td>
+                <td> <code>JS label</code></td>
+            </tr>
+            <tr>
+                <td>CALL, RET</td>
+                <td>Procedure Calls and Returns - CALL is used to call a procedure or subroutine, and RET is used to
+                    return from a procedure.</td>
+                <td> <code>CALL subroutine</code></td>
+            </tr>
+        </table>
+
+        <h2>Procedures (PROC) and Macros (MACRO)</h2>
+        <p>Procedures and macros provide a way to modularize code and reuse it across the program.</p>
+        <p>In assembly language, a procedure is a named block of code that performs a specific task. It can be called
+            from other parts of the program.</p>
+        <p>A macro is a named block of code that is expanded inline wherever it is invoked. Macros are often used for
+            code repetition or to define complex instructions.</p>
+        <p>Here's an example of defining and using a procedure and a macro:</p>
+        <pre>
+        PROC procedure_name
+            ; Procedure body
+            ret
+        ENDP
+
+        MACRO macro_name parameters
+            ; Macro body
+        ENDM
+        </pre>
+    </div>
+
+</body>
+
+</html>
